@@ -19,6 +19,8 @@ services:
       COOKIE_SECURE: 'false'
       DEMO_ADMIN_PASSWORD: ${DEMO_ADMIN_PASSWORD}
       DEMO_ANALYST_PASSWORD: ${DEMO_ANALYST_PASSWORD}
+      AI_BASE_URL: ${AI_BASE_URL:-}
+      AI_MODEL: ${AI_MODEL:-}
     command: [alembic, upgrade, head]
     depends_on:
       db:
