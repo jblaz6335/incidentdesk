@@ -105,6 +105,6 @@ I reused the five MIT-licensed rules from my [SOC Incident Investigation Lab](ht
 
 This is one trusted workspace, not a multi-tenant SOC platform. It has no SSO/MFA, password-reset UI, case-level confidentiality, cross-upload correlation, storage quota, automatic retention schedule, database-backed draft versioning or tamper-proof audit storage. Lists show up to 200 recent entries. Drafts select observations rather than writing open-ended AI narratives. The detection heuristics require analyst validation. I have not measured large-scale performance or real-world precision/recall.
 
-I verified the application locally against native PostgreSQL because Docker Desktop on my Windows host was blocked by stale-socket startup errors. The repository's CI separately exercises the Compose stack on Linux. Check the workflow badge and [verification record](docs/verification.md) for actual results.
+I verified 55 backend tests and three browser scenarios, including the full upload-to-report workflow. The Linux Compose CI run passed. On October 26, 2026, after updating Docker Desktop, I also ran the one-command demo and all three browser scenarios against the local Windows Compose stack. My [verification record](docs/verification.md) links the passing CI run and records the checks and their limits.
 
 Further reading: [Threat model](docs/threat-model.md) · [Design decisions](docs/design.md) · [Input schema](docs/input-schema.md) · [Retention and deletion](docs/retention.md) · [Portfolio case study and interview notes](docs/portfolio.md)

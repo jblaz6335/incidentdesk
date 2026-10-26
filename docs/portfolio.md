@@ -18,6 +18,8 @@ PostgreSQL testing exposed a timezone-handling error in my login throttle that t
 
 My local Docker installation had a stale-socket startup failure. I ran the application against a separate local PostgreSQL instance and retained a Linux Compose CI job, making the verification boundary explicit instead of claiming the Windows Compose launch succeeded.
 
+After updating Docker Desktop on October 26, 2026, I also verified the one-command Compose demo and all three browser scenarios locally on Windows. The earlier Linux Compose CI run passed as well. I kept both stages in my verification record so the documented result reflects what I actually tested.
+
 ## Interview talking points
 
 - **Why PostgreSQL for the queue?** I wanted a small reproducible stack. Row locking lets workers claim jobs safely, and the database transaction commits cases, audit records and completion together. I would reconsider a dedicated broker when throughput or scheduling needs justify it.
